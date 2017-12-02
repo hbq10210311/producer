@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nezha.gcar.member.mapper.MemberMapper" >
+  <resultMap id="BaseResultMap" type="com.nezha.gcar.member.entity.Member" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="from_member" property="fromMember" jdbcType="TINYINT" />
+    <result column="marketing_id" property="marketingId" jdbcType="BIGINT" />
+    <result column="marketing_name" property="marketingName" jdbcType="VARCHAR" />
+    <result column="recommend_id" property="recommendId" jdbcType="BIGINT" />
+    <result column="recommend_name" property="recommendName" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="statuts" property="statuts" jdbcType="TINYINT" />
+    <result column="is_selles" property="isSelles" jdbcType="TINYINT" />
+    <result column="is_butler" property="isButler" jdbcType="TINYINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="mark" property="mark" jdbcType="TINYINT" />
+    <result column="focus_type" property="focusType" jdbcType="TINYINT" />
+    <result column="modifier_id" property="modifierId" jdbcType="VARCHAR" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="lasttime_modify" property="lasttimeModify" jdbcType="TIMESTAMP" />
+    <result column="city_id" property="cityId" jdbcType="VARCHAR" />
+    <result column="city_code" property="cityCode" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="is_test_driver" property="isTestDriver" jdbcType="TINYINT" />
+    <result column="image_qrcode" property="imageQrcode" jdbcType="VARCHAR" />
+    <result column="org_id" property="orgId" jdbcType="VARCHAR" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+    <result column="org_tel" property="orgTel" jdbcType="VARCHAR" />
+    <result column="sysuser_id" property="sysuserId" jdbcType="VARCHAR" />
+    <result column="sysuser_name" property="sysuserName" jdbcType="VARCHAR" />
+    <result column="Info_audit" property="infoAudit" jdbcType="TINYINT" />
+    <result column="use_car_approved" property="useCarApproved" jdbcType="TINYINT" />
+    <result column="buy_approved" property="buyApproved" jdbcType="TINYINT" />
+    <result column="is_auditor" property="isAuditor" jdbcType="TINYINT" />
+    <result column="sure_name" property="sureName" jdbcType="VARCHAR" />
+    <result column="nationality" property="nationality" jdbcType="VARCHAR" />
+    <result column="nationality_id" property="nationalityId" jdbcType="BIGINT" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="member_type" property="memberType" jdbcType="TINYINT" />
+    <result column="is_sales_manager" property="isSalesManager" jdbcType="TINYINT" />
+    <result column="is_customer_manager" property="isCustomerManager" jdbcType="TINYINT" />
+    <result column="is_customer" property="isCustomer" jdbcType="TINYINT" />
+    <result column="is_sales_support" property="isSalesSupport" jdbcType="TINYINT" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="channel_id" property="channelId" jdbcType="BIGINT" />
+    <result column="card_id" property="cardId" jdbcType="BIGINT" />
+    <result column="has_pass_record" property="hasPassRecord" jdbcType="TINYINT" />
+    <result column="is_getcash_auditor" property="isGetcashAuditor" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, mobile, openid, sex, from_member, marketing_id, marketing_name, recommend_id, 
+    recommend_name, created, statuts, is_selles, is_butler, type, mark, focus_type, modifier_id, 
+    modifier, lasttime_modify, city_id, city_code, city_name, image_url, is_test_driver, 
+    image_qrcode, org_id, org_name, org_tel, sysuser_id, sysuser_name, Info_audit, use_car_approved, 
+    buy_approved, is_auditor, sure_name, nationality, nationality_id, idcard, addtime, 
+    member_type, is_sales_manager, is_customer_manager, is_customer, is_sales_support, 
+    birthday, channel_id, card_id, has_pass_record, is_getcash_auditor
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from td_member
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from td_member
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.nezha.gcar.member.entity.Member" >
+    insert into td_member (id, name, mobile, 
+      openid, sex, from_member, 
+      marketing_id, marketing_name, recommend_id, 
+      recommend_name, created, statuts, 
+      is_selles, is_butler, type, 
+      mark, focus_type, modifier_id, 
+      modifier, lasttime_modify, city_id, 
+      city_code, city_name, image_url, 
+      is_test_driver, image_qrcode, org_id, 
+      org_name, org_tel, sysuser_id, 
+      sysuser_name, Info_audit, use_car_approved, 
+      buy_approved, is_auditor, sure_name, 
+      nationality, nationality_id, idcard, 
+      addtime, member_type, is_sales_manager, 
+      is_customer_manager, is_customer, is_sales_support, 
+      birthday, channel_id, card_id, 
+      has_pass_record, is_getcash_auditor)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{openid,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{fromMember,jdbcType=TINYINT}, 
+      #{marketingId,jdbcType=BIGINT}, #{marketingName,jdbcType=VARCHAR}, #{recommendId,jdbcType=BIGINT}, 
+      #{recommendName,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{statuts,jdbcType=TINYINT}, 
+      #{isSelles,jdbcType=TINYINT}, #{isButler,jdbcType=TINYINT}, #{type,jdbcType=TINYINT}, 
+      #{mark,jdbcType=TINYINT}, #{focusType,jdbcType=TINYINT}, #{modifierId,jdbcType=VARCHAR}, 
+      #{modifier,jdbcType=VARCHAR}, #{lasttimeModify,jdbcType=TIMESTAMP}, #{cityId,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, 
+      #{isTestDriver,jdbcType=TINYINT}, #{imageQrcode,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{orgTel,jdbcType=VARCHAR}, #{sysuserId,jdbcType=VARCHAR}, 
+      #{sysuserName,jdbcType=VARCHAR}, #{infoAudit,jdbcType=TINYINT}, #{useCarApproved,jdbcType=TINYINT}, 
+      #{buyApproved,jdbcType=TINYINT}, #{isAuditor,jdbcType=TINYINT}, #{sureName,jdbcType=VARCHAR}, 
+      #{nationality,jdbcType=VARCHAR}, #{nationalityId,jdbcType=BIGINT}, #{idcard,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{memberType,jdbcType=TINYINT}, #{isSalesManager,jdbcType=TINYINT}, 
+      #{isCustomerManager,jdbcType=TINYINT}, #{isCustomer,jdbcType=TINYINT}, #{isSalesSupport,jdbcType=TINYINT}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{channelId,jdbcType=BIGINT}, #{cardId,jdbcType=BIGINT}, 
+      #{hasPassRecord,jdbcType=TINYINT}, #{isGetcashAuditor,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nezha.gcar.member.entity.Member" >
+    insert into td_member
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="fromMember != null" >
+        from_member,
+      </if>
+      <if test="marketingId != null" >
+        marketing_id,
+      </if>
+      <if test="marketingName != null" >
+        marketing_name,
+      </if>
+      <if test="recommendId != null" >
+        recommend_id,
+      </if>
+      <if test="recommendName != null" >
+        recommend_name,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="statuts != null" >
+        statuts,
+      </if>
+      <if test="isSelles != null" >
+        is_selles,
+      </if>
+      <if test="isButler != null" >
+        is_butler,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="mark != null" >
+        mark,
+      </if>
+      <if test="focusType != null" >
+        focus_type,
+      </if>
+      <if test="modifierId != null" >
+        modifier_id,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="lasttimeModify != null" >
+        lasttime_modify,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="cityCode != null" >
+        city_code,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="isTestDriver != null" >
+        is_test_driver,
+      </if>
+      <if test="imageQrcode != null" >
+        image_qrcode,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="orgName != null" >
+        org_name,
+      </if>
+      <if test="orgTel != null" >
+        org_tel,
+      </if>
+      <if test="sysuserId != null" >
+        sysuser_id,
+      </if>
+      <if test="sysuserName != null" >
+        sysuser_name,
+      </if>
+      <if test="infoAudit != null" >
+        Info_audit,
+      </if>
+      <if test="useCarApproved != null" >
+        use_car_approved,
+      </if>
+      <if test="buyApproved != null" >
+        buy_approved,
+      </if>
+      <if test="isAuditor != null" >
+        is_auditor,
+      </if>
+      <if test="sureName != null" >
+        sure_name,
+      </if>
+      <if test="nationality != null" >
+        nationality,
+      </if>
+      <if test="nationalityId != null" >
+        nationality_id,
+      </if>
+      <if test="idcard != null" >
+        idcard,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="memberType != null" >
+        member_type,
+      </if>
+      <if test="isSalesManager != null" >
+        is_sales_manager,
+      </if>
+      <if test="isCustomerManager != null" >
+        is_customer_manager,
+      </if>
+      <if test="isCustomer != null" >
+        is_customer,
+      </if>
+      <if test="isSalesSupport != null" >
+        is_sales_support,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="hasPassRecord != null" >
+        has_pass_record,
+      </if>
+      <if test="isGetcashAuditor != null" >
+        is_getcash_auditor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="fromMember != null" >
+        #{fromMember,jdbcType=TINYINT},
+      </if>
+      <if test="marketingId != null" >
+        #{marketingId,jdbcType=BIGINT},
+      </if>
+      <if test="marketingName != null" >
+        #{marketingName,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendId != null" >
+        #{recommendId,jdbcType=BIGINT},
+      </if>
+      <if test="recommendName != null" >
+        #{recommendName,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statuts != null" >
+        #{statuts,jdbcType=TINYINT},
+      </if>
+      <if test="isSelles != null" >
+        #{isSelles,jdbcType=TINYINT},
+      </if>
+      <if test="isButler != null" >
+        #{isButler,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=TINYINT},
+      </if>
+      <if test="focusType != null" >
+        #{focusType,jdbcType=TINYINT},
+      </if>
+      <if test="modifierId != null" >
+        #{modifierId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttimeModify != null" >
+        #{lasttimeModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isTestDriver != null" >
+        #{isTestDriver,jdbcType=TINYINT},
+      </if>
+      <if test="imageQrcode != null" >
+        #{imageQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTel != null" >
+        #{orgTel,jdbcType=VARCHAR},
+      </if>
+      <if test="sysuserId != null" >
+        #{sysuserId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysuserName != null" >
+        #{sysuserName,jdbcType=VARCHAR},
+      </if>
+      <if test="infoAudit != null" >
+        #{infoAudit,jdbcType=TINYINT},
+      </if>
+      <if test="useCarApproved != null" >
+        #{useCarApproved,jdbcType=TINYINT},
+      </if>
+      <if test="buyApproved != null" >
+        #{buyApproved,jdbcType=TINYINT},
+      </if>
+      <if test="isAuditor != null" >
+        #{isAuditor,jdbcType=TINYINT},
+      </if>
+      <if test="sureName != null" >
+        #{sureName,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null" >
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalityId != null" >
+        #{nationalityId,jdbcType=BIGINT},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberType != null" >
+        #{memberType,jdbcType=TINYINT},
+      </if>
+      <if test="isSalesManager != null" >
+        #{isSalesManager,jdbcType=TINYINT},
+      </if>
+      <if test="isCustomerManager != null" >
+        #{isCustomerManager,jdbcType=TINYINT},
+      </if>
+      <if test="isCustomer != null" >
+        #{isCustomer,jdbcType=TINYINT},
+      </if>
+      <if test="isSalesSupport != null" >
+        #{isSalesSupport,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=BIGINT},
+      </if>
+      <if test="hasPassRecord != null" >
+        #{hasPassRecord,jdbcType=TINYINT},
+      </if>
+      <if test="isGetcashAuditor != null" >
+        #{isGetcashAuditor,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nezha.gcar.member.entity.Member" >
+    update td_member
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="fromMember != null" >
+        from_member = #{fromMember,jdbcType=TINYINT},
+      </if>
+      <if test="marketingId != null" >
+        marketing_id = #{marketingId,jdbcType=BIGINT},
+      </if>
+      <if test="marketingName != null" >
+        marketing_name = #{marketingName,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendId != null" >
+        recommend_id = #{recommendId,jdbcType=BIGINT},
+      </if>
+      <if test="recommendName != null" >
+        recommend_name = #{recommendName,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statuts != null" >
+        statuts = #{statuts,jdbcType=TINYINT},
+      </if>
+      <if test="isSelles != null" >
+        is_selles = #{isSelles,jdbcType=TINYINT},
+      </if>
+      <if test="isButler != null" >
+        is_butler = #{isButler,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="mark != null" >
+        mark = #{mark,jdbcType=TINYINT},
+      </if>
+      <if test="focusType != null" >
+        focus_type = #{focusType,jdbcType=TINYINT},
+      </if>
+      <if test="modifierId != null" >
+        modifier_id = #{modifierId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttimeModify != null" >
+        lasttime_modify = #{lasttimeModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isTestDriver != null" >
+        is_test_driver = #{isTestDriver,jdbcType=TINYINT},
+      </if>
+      <if test="imageQrcode != null" >
+        image_qrcode = #{imageQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        org_id = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        org_name = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTel != null" >
+        org_tel = #{orgTel,jdbcType=VARCHAR},
+      </if>
+      <if test="sysuserId != null" >
+        sysuser_id = #{sysuserId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysuserName != null" >
+        sysuser_name = #{sysuserName,jdbcType=VARCHAR},
+      </if>
+      <if test="infoAudit != null" >
+        Info_audit = #{infoAudit,jdbcType=TINYINT},
+      </if>
+      <if test="useCarApproved != null" >
+        use_car_approved = #{useCarApproved,jdbcType=TINYINT},
+      </if>
+      <if test="buyApproved != null" >
+        buy_approved = #{buyApproved,jdbcType=TINYINT},
+      </if>
+      <if test="isAuditor != null" >
+        is_auditor = #{isAuditor,jdbcType=TINYINT},
+      </if>
+      <if test="sureName != null" >
+        sure_name = #{sureName,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null" >
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalityId != null" >
+        nationality_id = #{nationalityId,jdbcType=BIGINT},
+      </if>
+      <if test="idcard != null" >
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberType != null" >
+        member_type = #{memberType,jdbcType=TINYINT},
+      </if>
+      <if test="isSalesManager != null" >
+        is_sales_manager = #{isSalesManager,jdbcType=TINYINT},
+      </if>
+      <if test="isCustomerManager != null" >
+        is_customer_manager = #{isCustomerManager,jdbcType=TINYINT},
+      </if>
+      <if test="isCustomer != null" >
+        is_customer = #{isCustomer,jdbcType=TINYINT},
+      </if>
+      <if test="isSalesSupport != null" >
+        is_sales_support = #{isSalesSupport,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=BIGINT},
+      </if>
+      <if test="hasPassRecord != null" >
+        has_pass_record = #{hasPassRecord,jdbcType=TINYINT},
+      </if>
+      <if test="isGetcashAuditor != null" >
+        is_getcash_auditor = #{isGetcashAuditor,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nezha.gcar.member.entity.Member" >
+    update td_member
+    set name = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=TINYINT},
+      from_member = #{fromMember,jdbcType=TINYINT},
+      marketing_id = #{marketingId,jdbcType=BIGINT},
+      marketing_name = #{marketingName,jdbcType=VARCHAR},
+      recommend_id = #{recommendId,jdbcType=BIGINT},
+      recommend_name = #{recommendName,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      statuts = #{statuts,jdbcType=TINYINT},
+      is_selles = #{isSelles,jdbcType=TINYINT},
+      is_butler = #{isButler,jdbcType=TINYINT},
+      type = #{type,jdbcType=TINYINT},
+      mark = #{mark,jdbcType=TINYINT},
+      focus_type = #{focusType,jdbcType=TINYINT},
+      modifier_id = #{modifierId,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      lasttime_modify = #{lasttimeModify,jdbcType=TIMESTAMP},
+      city_id = #{cityId,jdbcType=VARCHAR},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      is_test_driver = #{isTestDriver,jdbcType=TINYINT},
+      image_qrcode = #{imageQrcode,jdbcType=VARCHAR},
+      org_id = #{orgId,jdbcType=VARCHAR},
+      org_name = #{orgName,jdbcType=VARCHAR},
+      org_tel = #{orgTel,jdbcType=VARCHAR},
+      sysuser_id = #{sysuserId,jdbcType=VARCHAR},
+      sysuser_name = #{sysuserName,jdbcType=VARCHAR},
+      Info_audit = #{infoAudit,jdbcType=TINYINT},
+      use_car_approved = #{useCarApproved,jdbcType=TINYINT},
+      buy_approved = #{buyApproved,jdbcType=TINYINT},
+      is_auditor = #{isAuditor,jdbcType=TINYINT},
+      sure_name = #{sureName,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      nationality_id = #{nationalityId,jdbcType=BIGINT},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      addtime = #{addtime,jdbcType=TIMESTAMP},
+      member_type = #{memberType,jdbcType=TINYINT},
+      is_sales_manager = #{isSalesManager,jdbcType=TINYINT},
+      is_customer_manager = #{isCustomerManager,jdbcType=TINYINT},
+      is_customer = #{isCustomer,jdbcType=TINYINT},
+      is_sales_support = #{isSalesSupport,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      channel_id = #{channelId,jdbcType=BIGINT},
+      card_id = #{cardId,jdbcType=BIGINT},
+      has_pass_record = #{hasPassRecord,jdbcType=TINYINT},
+      is_getcash_auditor = #{isGetcashAuditor,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryMemberList" resultMap="BaseResultMap">
+    SELECT  * from td_member;
+  </select>
+
+</mapper>
